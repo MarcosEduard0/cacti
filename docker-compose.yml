@@ -3,6 +3,7 @@ services:
   php-fpm:
     container_name: cacti-php-fpm
     image: php-fpm
+    restart: unless-stopped
     depends_on:
       - db
     volumes:
@@ -18,6 +19,7 @@ services:
     depends_on:
       - php-fpm
     image: nginx
+    restart: unless-stopped
     ports:
       - 80:80
     volumes:
